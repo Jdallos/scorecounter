@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Score counter application">
+    <meta name="keywords" content="Score keeper, javascript, front end projects">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Score Counter</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="icon" type="image/x-icon" href="Images/favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <section class="section">
+        <div class="continer">
+            <div class="column">
+                <h1 class="title is-2 has-text-centered is-family-monospace is-underlined">Score Counter App</h1>
+            </div>
+        </div>
+        <div class="container">
+            <div class="columns">
+                <div class="side-panel game-count-col column is-one-quarter mt-3">
+                    <h2 class="title is-4">Game count:</h2>
+                    <p class="subtitle is-4 has-text-primary mt-1"><span id="p1NameGame">Player 1: </span><span
+                            class="has-text-weight-bold is-size-3" id="p1GameDisplay">0</span> </p>
+                    <p class="subtitle is-4 has-text-link mt-1"><span id="p2NameGame">Player 2: </span><span
+                            class="has-text-weight-bold is-size-3" id="p2GameDisplay">0</span></p>
+                    <button id="resetGames" class="button is-danger is-medium mt-2">Reset Games</button>
+                    <div id="padelSetsContainer" class="mt-5 is-hidden">
+                        <h2 class="title is-4">Sets:</h2>
+                        <p class="subtitle is-4 has-text-primary mt-1"><span id="p1NameSets">Player 1: </span><span
+                                class="has-text-weight-bold is-size-3" id="p1SetsDisplay">0</span> </p>
+                        <p class="subtitle is-4 has-text-link mt-1"><span id="p2NameSets">Player 2: </span><span
+                                class="has-text-weight-bold is-size-3" id="p2SetsDisplay">0</span></p>
+                        <button id="resetSets" class="button is-danger is-medium mt-2">Reset Sets</button>
+                    </div>
+                </div>
+                <div class="column is-half">
+                    <div class="card">
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                Score Card
+                            </p>
+                        </header>
+                        <div class="card-image">
+                            <figure class="image is-2by1">
+                                <img id="img-change" src="Images/scoreKeeper.jpg" alt="People playing a game">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="content">
+                                <h1 class="title is-1"><span id="p1Display">0</span> to <span id="p2Display">0</span>
+                                </h1>
+                                <p class="subtitle">Use the buttons below to keep score.</p>
+                                <label for="platTo" class="label is-large is-inline playing-to">Playing to</label>
+                                <div class="select is-rounded playing-to">
+                                    <select id="playTo">
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option selected value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <footer class="card-footer is-flex-wrap-wrap">
+                            <button id="p1Button" class="button is-primary card-footer-item is-medium">+1 Player
+                                One</button>
+                            <button id="p2Button" class="button is-link card-footer-item is-medium">+1 Player
+                                Two</button>
+                            <button id="reset" class="button is-danger card-footer-item is-medium">Reset</button>
+                        </footer>
+                    </div>
+                </div>
+                <div class="side-panel column is-one-quarter mt-3">
+                    <!-- NOTE: Stopwatch code below taken and used with permission from https://code-boxx.com/simple-javascript-stopwatch/
+                         Minor additions and modifications made to create the switch button and associated functionality- see comments below -->
+                    <div id="stopwatch">
+                        <!-- CURRENT TIME -->
+                        <div id="sw-time">00:00:00</div>
+
+                        <!-- CONTROLS -->
+                        <input type="button" value="Reset" id="sw-rst" disabled />
+                        <!-- This switch input/button added -->
+                        <input type="button" value="Switch" id="switchButton" disabled />
+                        <input type="button" value="Start" id="sw-go" disabled />
+                    </div>
+                    <!-- Stopwatch code ends -->
+                    <hr class="has-background-grey">
+                    <h2 class="title is-4">Settings</h2>
+                    <p class="subtitle note is-6 has-text-danger mt-1">Note: changing settings will reset current game.
+                    </p>
+                    <label for="winBy2" class="checkbox">Must win by 2 points:
+                        <input type="checkbox" id="winBy2">
+                    </label>
+                    <br>
+                    <br>
+                    <label class="radio">Game count:</label>
+                    <label class="radio mx-0" for="gameCountOn">On
+                        <input type="radio" checked name="gameCountUse" id="gameCountOn">
+                    </label>
+                    <label class="radio mx-0" for="gameCountOff">Off
+                        <input type="radio" name="gameCountUse" id="gameCountOff">
+                    </label>
+                    <br>
+                    <br>
+                    <label for="customPlayTo">Custom play to:
+                        <input type="number" min="1" placeholder="Playing to" class="input is-success"
+                            id="customPlayTo">
+                    </label>
+                    <br>
+                    <br>
+                    <label class="radio">Padel-mode:</label>
+                    <label class="radio mx-0" for="padelModeOn">On
+                        <input type="radio" name="padelMode" id="padelModeOn">
+                    </label>
+                    <label class="radio mx-0" for="padelModeOff">Off
+                        <input type="radio" checked name="padelMode" id="padelModeOff">
+                    </label>
+                    <br>
+                    <br>
+                    <p id="defaults" class="has-text-right is-underlined has-text-link-dark is-clickable">restore
+                        default settings</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container">
+        <div class="column">
+            <label class="is-size-4" for="p1Name">Player One name:
+                <input class="input is-primary" placeholder="Enter Player One name" type="text" id="p1Name">
+            </label>
+            <label class="is-size-4" for="p2Name">Player Two name:
+                <input class="input is-link" placeholder="Enter Player Two name" type="text" name="" id="p2Name">
+            </label>
+
+        </div>
+    </div>
+    <footer class="footer has-background-grey-dark p-5">
+        <p class=" content has-text-centered"><a href="https://jdallos.github.io/portfolio/" class="has-text-light"
+                target="_blank">JD Web Dev &#169;</a></p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/fireworks-js@latest/dist/fireworks.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

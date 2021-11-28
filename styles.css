@@ -1,0 +1,106 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.side-panel {
+  background-color: rgba(119, 136, 153, 0.158);
+}
+canvas {
+  position: absolute;
+  z-index: -1;
+}
+
+.img-change {
+  animation-name: animation;
+  animation-duration: 0.2s;
+  animation-iteration-count: 5;
+}
+
+@keyframes animation {
+  0% {
+    transform: rotate(0.2turn);
+    opacity: 0.8;
+  }
+  25% {
+    transform: rotate(0.4turn);
+    opacity: 0.6;
+  }
+  50% {
+    transform: rotate(0.6turn);
+    opacity: 0.4;
+  }
+  75% {
+    transform: rotate(0.8turn);
+    opacity: 0.2;
+  }
+  100% {
+    transform: rotate(1turn);
+    opacity: 0;
+  }
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.007);
+}
+footer {
+  margin-top: auto;
+}
+
+.arrowRemove {
+  opacity: 0;
+}
+
+/* NOTE: Stopwatch code below taken and used with permission from https://code-boxx.com/simple-javascript-stopwatch/
+Minor additions and modifications made to create the switch button and associated functionality- see comments below */
+
+/* (A) CONTAINER */
+#stopwatch {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+/* (B) TIME */
+#sw-time {
+  width: 100%;
+  padding: 20px 0;
+  font-size: 48px;
+  font-weight: bold;
+  text-align: center;
+  background: #000;
+  color: #fff;
+}
+
+/* (C) BUTTONS */
+/* Minor changes here to create switchButton and hover effects */
+#sw-rst,
+#sw-go,
+#switchButton {
+  box-sizing: border-box;
+  width: 33.3%;
+  cursor: pointer;
+  padding: 20px 0;
+  border: 0;
+  color: #fff;
+  font-size: 20px;
+}
+#switchButton {
+  background-color: #a30896;
+}
+#sw-rst {
+  background-color: #a32208;
+}
+#sw-go {
+  background-color: #20a308;
+}
+#switchButton:hover {
+  background-color: #df0ecd;
+}
+#sw-rst:hover {
+  background-color: #d63110;
+}
+#sw-go:hover {
+  background-color: #2acf0d;
+}
